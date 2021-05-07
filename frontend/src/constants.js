@@ -1,6 +1,6 @@
 export const REQUEST_STATE = {
   INITIAL: 'INITIAL',
-  LOADEIG: 'LOADING',
+  LOADING: 'LOADING',
   OK: 'OK'
 }
 
