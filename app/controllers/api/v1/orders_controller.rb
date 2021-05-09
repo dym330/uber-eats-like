@@ -4,7 +4,7 @@ module Api
       def create
         posted_line_foods = LineFood.where(id: params[:line_food_ids])
         order = Order.new(
-          total_price: toral_price(posted_line_foods),
+          total_price: total_price(posted_line_foods),
         )
         if order.save_with_update_line_foods!(posted_line_foods)
           render json: {}, status: :no_content
@@ -13,7 +13,7 @@ module Api
         end
       end
 
-      privete
+      private
 
       def total_price(posted_line_foods)
         posted_line_foods.sum { |line_food| line_food.total_amount } + posted_line_foods.first.restaurant.fee
